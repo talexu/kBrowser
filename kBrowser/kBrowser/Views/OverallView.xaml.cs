@@ -23,8 +23,6 @@ namespace kBrowser.Views
         public OverallView()
         {
             InitializeComponent();
-            Microsoft.Kinect.Toolkit.Controls.KinectItemsControl a;
-            
         }
     }
 }

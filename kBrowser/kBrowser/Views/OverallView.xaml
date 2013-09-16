@@ -15,38 +15,16 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding folderName}"/>
-                        <ItemsControl Grid.Row="1" ItemsSource="{Binding pictures}">
-                            <ItemsControl.ItemTemplate>
+                        <k:KinectItemsControl Grid.Row="1" Style="{StaticResource Pictures_Preview_KinectItemsControlStyle}" ItemsSource="{Binding pictures}">
+                            <k:KinectItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Image Source="{Binding uri}"/>
                                 </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
+                            </k:KinectItemsControl.ItemTemplate>
+                        </k:KinectItemsControl>
                     </Grid>
                 </DataTemplate>
             </k:KinectItemsControl.ItemTemplate>
         </k:KinectItemsControl>
     </k:KinectRegion>
-    <!--<ScrollViewer>
-        <ItemsControl ItemsSource="{Binding folders}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding folderName}"/>
-                        <ItemsControl Grid.Row="1" ItemsSource="{Binding pictures}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Image Source="{Binding uri}"/>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>
-                    </Grid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-    </ScrollViewer>-->
 </UserControl>
