@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kBrowser.Businesses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,19 @@ namespace kBrowser
         public MainWindow()
         {
             InitializeComponent();
+
+            DataManager.instance.LoadDemo();
+            v_overall.DataContext = DataManager.instance;
+        }
+
+        private void OverallView_Loaded(object sender, RoutedEventArgs e)
+        {
+            ViewManager.instance.RegisterView(BrowserView.overall, sender as UIElement);
+        }
+
+        private void PictureView_Loaded(object sender, RoutedEventArgs e)
+        {
+            ViewManager.instance.RegisterView(BrowserView.picture, sender as UIElement);
         }
     }
 }

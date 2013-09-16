@@ -1,8 +1,10 @@
 ﻿<Window x:Class="kBrowser.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:v="clr-namespace:kBrowser.Views"
+        Title="MainWindow" Height="576" Width="1024">
     <Grid>
-        <TextBlock>kBrowser(XU and MA)</TextBlock>
+        <v:OverallView x:Name="v_overall" Loaded="OverallView_Loaded"/>
+        <v:PictureView x:Name="v_picture" Visibility="Collapsed" Loaded="PictureView_Loaded"/>
     </Grid>
 </Window>
