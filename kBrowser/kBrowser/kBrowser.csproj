@@ -69,16 +69,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Businesses\KinectManager.cs" />
+    <Compile Include="Businesses\Initializations.cs" />
+    <Compile Include="Businesses\ViewModels.cs" />
     <Compile Include="Businesses\ViewCommands.cs" />
     <Compile Include="Businesses\Config.cs" />
-    <Compile Include="Businesses\DataManager.cs" />
-    <Compile Include="Businesses\ViewManager.cs" />
-    <Compile Include="Commands\AbstractViewCommand.cs" />
-    <Compile Include="Commands\JumpToOverallViewCommand.cs" />
-    <Compile Include="Commands\JumpToPictureViewCommand.cs" />
-    <Compile Include="Models\Picture.cs" />
-    <Compile Include="Models\PictureFolder.cs" />
+    <Compile Include="Commands\Kinect\AbstractInitializeKinectCommand.cs" />
+    <Compile Include="Commands\Kinect\InitializeCameraCommand.cs" />
+    <Compile Include="Commands\Kinect\InitializeSoundCommand.cs" />
+    <Compile Include="Commands\Kinect\StopKinectCommand.cs" />
+    <Compile Include="Commands\Model\AbstractLoadDataCommand.cs" />
+    <Compile Include="Commands\Model\LoadDemoDataCommand.cs" />
+    <Compile Include="Commands\View\AbstractViewCommand.cs" />
+    <Compile Include="Commands\View\JumpToViewCommand.cs" />
+    <Compile Include="Commands\View\LoadPictureDataCommand.cs" />
+    <Compile Include="Commands\View\OpenPictureCommand.cs" />
+    <Compile Include="Commands\View\RegisterViewCommand.cs" />
+    <Compile Include="Models\Entity\Picture.cs" />
+    <Compile Include="Models\Entity\PictureFolder.cs" />
+    <Compile Include="Models\View\ViewType.cs" />
     <Compile Include="Utilities\TypeHelper.cs" />
     <Compile Include="Views\OverallView.xaml.cs">
       <DependentUpon>OverallView.xaml</DependentUpon>
@@ -151,6 +159,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Commands\Common\" />
     <Folder Include="Factories\" />
   </ItemGroup>
   <ItemGroup>

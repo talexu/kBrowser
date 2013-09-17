@@ -12,7 +12,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal">
-            <k:KinectCircleButton Command="{x:Static b:ViewCommands.jumpToOverallViewCommand}" Height="100">
+            <k:KinectCircleButton Command="{x:Static b:ViewCommands.jumpToViewCommand}" CommandParameter="{x:Static b:ViewModels.overallViewType}" Height="100">
                 ←
             </k:KinectCircleButton>
             <TextBlock Text="{Binding fileName}"/>

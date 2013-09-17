@@ -1,4 +1,5 @@
-﻿using kBrowser.Commands;
+﻿using kBrowser.Commands.View;
+using kBrowser.Models.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,23 +11,8 @@ namespace kBrowser.Businesses
 {
     class ViewCommands
     {
-        #region instance
-        private static ViewCommands _instance = new ViewCommands();
-        public static ViewCommands instance
-        {
-            get
-            {
-                return _instance;
-            }
-        }
-        private ViewCommands()
-        {
-        }
-        #endregion
-
-        public static ICommand jumpToOverallViewCommand = new JumpToOverallViewCommand(ViewManager.instance);
-        public static ICommand jumpToPictureViewCommand = new JumpToPictureViewCommand(ViewManager.instance);
-
-
+        public static ICommand registerViewCommand = new RegisterViewCommand(ViewModels.instance.views);
+        public static ICommand jumpToViewCommand = new JumpToViewCommand(ViewModels.instance.views);
+        public static ICommand openPictureCommand = new OpenPictureCommand(jumpToViewCommand, new LoadPictureDataCommand(ViewModels.instance.views));
     }
 }

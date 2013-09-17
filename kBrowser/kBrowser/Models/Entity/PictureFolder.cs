@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace kBrowser.Models
+namespace kBrowser.Models.Entity
 {
     class PictureFolder : INotifyPropertyChanged
     {

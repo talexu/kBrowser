@@ -1,4 +1,5 @@
 ﻿using kBrowser.Businesses;
+using kBrowser.Models.View;
 using kBrowser.Utilities;
 using System;
 using System.Collections.Generic;
@@ -25,24 +26,30 @@ namespace kBrowser
         {
             InitializeComponent();
 
-            //KinectManager.instance.initialize(kinectRegion, sensorChooserUi);
-            DataManager.instance.LoadDemo();
-            v_overall.DataContext = DataManager.instance;
-        }
+            v_overall.DataContext = ViewModels.instance;
 
-        private void OverallView_Loaded(object sender, RoutedEventArgs e)
-        {
-            ViewManager.instance.RegisterView(BrowserView.overall, TypeHelper.ToType<FrameworkElement>(sender));
-        }
-
-        private void PictureView_Loaded(object sender, RoutedEventArgs e)
-        {
-            ViewManager.instance.RegisterView(BrowserView.picture, TypeHelper.ToType<FrameworkElement>(sender));
+            ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.overall, TypeHelper.ToType<FrameworkElement>(v_overall)));
+            ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.picture, TypeHelper.ToType<FrameworkElement>(v_picture)));
         }
 
         private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            KinectManager.instance.StopKinect();
+            Initializations.stopKinect.Execute(null);
+        }
+
+        private void main_win_Loaded(object sender, RoutedEventArgs e)
+        {
+            System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
+                {
+                    Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.SystemIdle, new Action(() =>
+                        {
+                            IDictionary<string, object> parameters = new Dictionary<string, object>();
+                            parameters.Add("kinectRegion", kinectRegion);
+                            parameters.Add("sensorChooserUi", sensorChooserUi);
+                            Initializations.Initialize(parameters);
+                        }));
+                }));
+            th.Start();
         }
     }
 }

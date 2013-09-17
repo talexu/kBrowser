@@ -4,11 +4,11 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns:v="clr-namespace:kBrowser.Views"
         Title="MainWindow" Height="576" Width="1024"
-        x:Name="main_win" Closing="ControlsBasicsWindow_Closing">
+        x:Name="main_win" Loaded="main_win_Loaded" Closing="ControlsBasicsWindow_Closing">
     <k:KinectRegion x:Name="kinectRegion">
         <Grid>
-            <v:OverallView x:Name="v_overall" Loaded="OverallView_Loaded"/>
-            <v:PictureView x:Name="v_picture" Visibility="Collapsed" Loaded="PictureView_Loaded"/>
+            <v:OverallView x:Name="v_overall"/>
+            <v:PictureView x:Name="v_picture" Visibility="Collapsed"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
                 
                 <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100"/>

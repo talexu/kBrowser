@@ -18,7 +18,7 @@
                     <ItemsControl Grid.Row="1" Style="{StaticResource Pictures_Preview_ItemsControlStyle}" ItemsSource="{Binding pictures}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <k:KinectTileButton Style="{StaticResource Pictures_Preview_KinectTileButtonStyle}" Command="{x:Static b:ViewCommands.jumpToPictureViewCommand}" CommandParameter="{Binding}">
+                                <k:KinectTileButton Style="{StaticResource Pictures_Preview_KinectTileButtonStyle}" Command="{x:Static b:ViewCommands.openPictureCommand}" CommandParameter="{Binding}">
                                     <Image Source="{Binding uri}"/>
                                 </k:KinectTileButton>
                             </DataTemplate>

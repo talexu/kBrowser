@@ -1,4 +1,4 @@
-﻿using kBrowser.Businesses;
+﻿using Microsoft.Kinect.Toolkit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,14 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace kBrowser.Commands
+namespace kBrowser.Commands.Kinect
 {
-    abstract class AbstractViewCommand : ICommand
+    abstract class AbstractInitializeKinectCommand : ICommand
     {
-        protected ViewManager _vm;
-        public AbstractViewCommand(ViewManager vm)
+        protected KinectSensorChooser _sensorChooser;
+
+        public AbstractInitializeKinectCommand(KinectSensorChooser sensorChooser)
         {
-            _vm = vm;
+            _sensorChooser = sensorChooser;
         }
 
         public virtual bool CanExecute(object parameter)
