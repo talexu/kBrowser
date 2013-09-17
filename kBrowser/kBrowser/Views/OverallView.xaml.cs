@@ -26,14 +26,5 @@ namespace kBrowser.Views
         {
             InitializeComponent();
         }
-
-        private void kic_pictures_ItemClick(object sender, RoutedEventArgs e)
-        {
-            Microsoft.Kinect.Toolkit.Controls.KinectTileButton ktb = TypeHelper.ToType<Microsoft.Kinect.Toolkit.Controls.KinectTileButton>(e.OriginalSource);
-            if (ktb != null)
-            {
-                ViewCommands.jumpToPictureViewCommand.Execute(ktb.DataContext);
-            }
-        }
     }
 }

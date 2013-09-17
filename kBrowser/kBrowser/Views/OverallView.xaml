@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="kBrowser.Views.OverallView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:b="clr-namespace:kBrowser.Businesses"
              xmlns:k="http://schemas.microsoft.com/kinect/2013"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
@@ -14,13 +15,15 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <TextBlock Text="{Binding folderName}"/>
-                    <k:KinectItemsControl x:Name="kic_pictures" Grid.Row="1" Style="{StaticResource Pictures_Preview_KinectItemsControlStyle}" ItemsSource="{Binding pictures}" ItemClick="kic_pictures_ItemClick">
-                        <k:KinectItemsControl.ItemTemplate>
+                    <ItemsControl Grid.Row="1" Style="{StaticResource Pictures_Preview_ItemsControlStyle}" ItemsSource="{Binding pictures}">
+                        <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Image Source="{Binding uri}"/>
+                                <k:KinectTileButton Style="{StaticResource Pictures_Preview_KinectTileButtonStyle}" Command="{x:Static b:ViewCommands.jumpToPictureViewCommand}" CommandParameter="{Binding}">
+                                    <Image Source="{Binding uri}"/>
+                                </k:KinectTileButton>
                             </DataTemplate>
-                        </k:KinectItemsControl.ItemTemplate>
-                    </k:KinectItemsControl>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Grid>
             </DataTemplate>
         </k:KinectItemsControl.ItemTemplate>

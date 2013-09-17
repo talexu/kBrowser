@@ -151,6 +151,8 @@
         <Setter Property="ItemContainerStyle" Value="{StaticResource Pictures_Preview_KinectTileButtonStyle}"/>
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Disabled"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type k:KinectItemsControl}">

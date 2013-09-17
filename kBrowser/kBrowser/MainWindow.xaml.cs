@@ -1,4 +1,5 @@
 ﻿using kBrowser.Businesses;
+using kBrowser.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,12 +32,12 @@ namespace kBrowser
 
         private void OverallView_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewManager.instance.RegisterView(BrowserView.overall, sender as FrameworkElement);
+            ViewManager.instance.RegisterView(BrowserView.overall, TypeHelper.ToType<FrameworkElement>(sender));
         }
 
         private void PictureView_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewManager.instance.RegisterView(BrowserView.picture, sender as FrameworkElement);
+            ViewManager.instance.RegisterView(BrowserView.picture, TypeHelper.ToType<FrameworkElement>(sender));
         }
 
         private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
