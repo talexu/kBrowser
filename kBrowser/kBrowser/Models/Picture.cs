@@ -7,7 +7,7 @@ using System.Text;
 
 namespace kBrowser.Models
 {
-    public class Picture : INotifyPropertyChanged
+    class Picture : INotifyPropertyChanged
     {
         public Picture(string uri)
         {

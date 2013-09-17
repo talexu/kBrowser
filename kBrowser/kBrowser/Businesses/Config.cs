@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace kBrowser.Businesses
 {
-    public class Config
+    class Config
     {
         public const string pictureFolder = "Demo";
     }

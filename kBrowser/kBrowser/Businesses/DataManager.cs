@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace kBrowser.Businesses
 {
-    public class DataManager : INotifyPropertyChanged
+    class DataManager : INotifyPropertyChanged
     {
         #region instance
         private static DataManager _instance = new DataManager();

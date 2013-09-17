@@ -69,11 +69,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Businesses\CommandsManager.cs" />
     <Compile Include="Businesses\Config.cs" />
     <Compile Include="Businesses\DataManager.cs" />
     <Compile Include="Businesses\ViewManager.cs" />
+    <Compile Include="Commands\AbstractViewCommand.cs" />
+    <Compile Include="Commands\JumpToOverallViewCommand.cs" />
+    <Compile Include="Commands\JumpToPictureViewCommand.cs" />
     <Compile Include="Models\Picture.cs" />
     <Compile Include="Models\PictureFolder.cs" />
+    <Compile Include="Utilities\TypeHelper.cs" />
     <Compile Include="Views\OverallView.xaml.cs">
       <DependentUpon>OverallView.xaml</DependentUpon>
     </Compile>
@@ -141,7 +146,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Utilities\" />
+    <Folder Include="Factories\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Demo\Maki Kuraki\24_balln.jpg">

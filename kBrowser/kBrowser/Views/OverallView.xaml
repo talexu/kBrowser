@@ -15,7 +15,7 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
                         <TextBlock Text="{Binding folderName}"/>
-                        <k:KinectItemsControl Grid.Row="1" Style="{StaticResource Pictures_Preview_KinectItemsControlStyle}" ItemsSource="{Binding pictures}">
+                        <k:KinectItemsControl x:Name="kic_pictures" Grid.Row="1" Style="{StaticResource Pictures_Preview_KinectItemsControlStyle}" ItemsSource="{Binding pictures}" ItemClick="kic_pictures_ItemClick">
                             <k:KinectItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Image Source="{Binding uri}"/>

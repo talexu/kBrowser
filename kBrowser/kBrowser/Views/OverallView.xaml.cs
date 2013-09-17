@@ -1,4 +1,6 @@
-﻿using System;
+﻿using kBrowser.Businesses;
+using kBrowser.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,15 @@ namespace kBrowser.Views
         public OverallView()
         {
             InitializeComponent();
+        }
+
+        private void kic_pictures_ItemClick(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Kinect.Toolkit.Controls.KinectTileButton ktb = TypeHelper.ToType<Microsoft.Kinect.Toolkit.Controls.KinectTileButton>(e.OriginalSource);
+            if (ktb != null)
+            {
+                CommandsManager.jumpToPictureViewCommand.Execute(ktb.DataContext);
+            }
         }
     }
 }

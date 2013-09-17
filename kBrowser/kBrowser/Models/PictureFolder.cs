@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace kBrowser.Models
 {
-    public class PictureFolder : INotifyPropertyChanged
+    class PictureFolder : INotifyPropertyChanged
     {
         private string _uri;
         /// <summary>

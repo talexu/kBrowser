@@ -31,12 +31,12 @@ namespace kBrowser
 
         private void OverallView_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewManager.instance.RegisterView(BrowserView.overall, sender as UIElement);
+            ViewManager.instance.RegisterView(BrowserView.overall, sender as FrameworkElement);
         }
 
         private void PictureView_Loaded(object sender, RoutedEventArgs e)
         {
-            ViewManager.instance.RegisterView(BrowserView.picture, sender as UIElement);
+            ViewManager.instance.RegisterView(BrowserView.picture, sender as FrameworkElement);
         }
     }
 }

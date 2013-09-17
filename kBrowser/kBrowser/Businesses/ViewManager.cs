@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace kBrowser.Businesses
 {
-    public class ViewManager
+    class ViewManager
     {
         #region instance
         private static ViewManager _instance = new ViewManager();
@@ -23,18 +23,18 @@ namespace kBrowser.Businesses
         }
         #endregion
 
-        private Dictionary<BrowserView, UIElement> _views = new Dictionary<BrowserView, UIElement>();
+        private Dictionary<BrowserView, FrameworkElement> _views = new Dictionary<BrowserView, FrameworkElement>();
 
         /// <summary>
         /// Register a view
         /// </summary>
         /// <param name="browserView"></param>
-        /// <param name="ui"></param>
-        public void RegisterView(BrowserView browserView, UIElement ui)
+        /// <param name="fe"></param>
+        public void RegisterView(BrowserView browserView, FrameworkElement fe)
         {
             if (!_views.ContainsKey(browserView))
             {
-                _views.Add(browserView, ui);
+                _views.Add(browserView, fe);
             }
         }
 
@@ -48,6 +48,21 @@ namespace kBrowser.Businesses
             {
                 ui.Value.Visibility = ui.Key == browserView ? Visibility.Visible : Visibility.Collapsed;
             }
+        }
+
+        /// <summary>
+        /// Set the data of picture view
+        /// </summary>
+        /// <param name="dataContext"></param>
+        public bool SetPictureData(object dataContext)
+        {
+            FrameworkElement pictureView;
+            if (_views.TryGetValue(BrowserView.picture, out pictureView))
+            {
+                pictureView.DataContext = dataContext;
+                return true;
+            }
+            return false;
         }
     }
 
