@@ -8,18 +8,18 @@ using System.Windows.Input;
 
 namespace kBrowser.Businesses
 {
-    class CommandsManager
+    class ViewCommands
     {
         #region instance
-        private static CommandsManager _instance = new CommandsManager();
-        public static CommandsManager instance
+        private static ViewCommands _instance = new ViewCommands();
+        public static ViewCommands instance
         {
             get
             {
                 return _instance;
             }
         }
-        private CommandsManager()
+        private ViewCommands()
         {
         }
         #endregion

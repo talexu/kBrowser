@@ -6,19 +6,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" >
-    <k:KinectRegion>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal">
-                <k:KinectCircleButton Command="{x:Static b:CommandsManager.jumpToOverallViewCommand}"/>
-                <TextBlock Text="{Binding fileName}"/>
-            </StackPanel>
-            <Grid Grid.Row="1">
-                <Image Source="{Binding uri}"/>
-            </Grid>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <k:KinectCircleButton Command="{x:Static b:ViewCommands.jumpToOverallViewCommand}"/>
+            <TextBlock Text="{Binding fileName}"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Image Source="{Binding uri}"/>
         </Grid>
-    </k:KinectRegion>
+    </Grid>
 </UserControl>

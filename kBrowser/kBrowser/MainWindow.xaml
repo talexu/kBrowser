@@ -1,10 +1,19 @@
 ﻿<Window x:Class="kBrowser.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns:v="clr-namespace:kBrowser.Views"
-        Title="MainWindow" Height="576" Width="1024">
-    <Grid>
-        <v:OverallView x:Name="v_overall" Loaded="OverallView_Loaded"/>
-        <v:PictureView x:Name="v_picture" Visibility="Collapsed" Loaded="PictureView_Loaded"/>
-    </Grid>
+        Title="MainWindow" Height="576" Width="1024"
+        x:Name="main_win" Closing="ControlsBasicsWindow_Closing">
+    <k:KinectRegion x:Name="kinectRegion">
+        <Grid>
+            <v:OverallView x:Name="v_overall" Loaded="OverallView_Loaded"/>
+            <v:PictureView x:Name="v_picture" Visibility="Collapsed" Loaded="PictureView_Loaded"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+                
+                <k:KinectUserViewer k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="100"/>
+                <k:KinectSensorChooserUI x:Name="sensorChooserUi" />
+            </StackPanel>
+        </Grid>
+    </k:KinectRegion>
 </Window>

@@ -69,7 +69,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Businesses\CommandsManager.cs" />
+    <Compile Include="Businesses\KinectManager.cs" />
+    <Compile Include="Businesses\ViewCommands.cs" />
     <Compile Include="Businesses\Config.cs" />
     <Compile Include="Businesses\DataManager.cs" />
     <Compile Include="Businesses\ViewManager.cs" />

@@ -32,7 +32,7 @@ namespace kBrowser.Views
             Microsoft.Kinect.Toolkit.Controls.KinectTileButton ktb = TypeHelper.ToType<Microsoft.Kinect.Toolkit.Controls.KinectTileButton>(e.OriginalSource);
             if (ktb != null)
             {
-                CommandsManager.jumpToPictureViewCommand.Execute(ktb.DataContext);
+                ViewCommands.jumpToPictureViewCommand.Execute(ktb.DataContext);
             }
         }
     }

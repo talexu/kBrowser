@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -25,6 +24,7 @@ namespace kBrowser
         {
             InitializeComponent();
 
+            KinectManager.instance.initialize(kinectRegion, sensorChooserUi);
             DataManager.instance.LoadDemo();
             v_overall.DataContext = DataManager.instance;
         }
@@ -37,6 +37,11 @@ namespace kBrowser
         private void PictureView_Loaded(object sender, RoutedEventArgs e)
         {
             ViewManager.instance.RegisterView(BrowserView.picture, sender as FrameworkElement);
+        }
+
+        private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            KinectManager.instance.StopKinect();
         }
     }
 }

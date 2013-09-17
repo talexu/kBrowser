@@ -5,26 +5,24 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d">
-    <k:KinectRegion>
-        <k:KinectItemsControl Style="{StaticResource Overall_Folders_KinectItemsControlStyle}" ItemsSource="{Binding folders}">
-            <k:KinectItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="{Binding folderName}"/>
-                        <k:KinectItemsControl x:Name="kic_pictures" Grid.Row="1" Style="{StaticResource Pictures_Preview_KinectItemsControlStyle}" ItemsSource="{Binding pictures}" ItemClick="kic_pictures_ItemClick">
-                            <k:KinectItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Image Source="{Binding uri}"/>
-                                </DataTemplate>
-                            </k:KinectItemsControl.ItemTemplate>
-                        </k:KinectItemsControl>
-                    </Grid>
-                </DataTemplate>
-            </k:KinectItemsControl.ItemTemplate>
-        </k:KinectItemsControl>
-    </k:KinectRegion>
+    <k:KinectItemsControl Style="{StaticResource Overall_Folders_KinectItemsControlStyle}" ItemsSource="{Binding folders}">
+        <k:KinectItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="{Binding folderName}"/>
+                    <k:KinectItemsControl x:Name="kic_pictures" Grid.Row="1" Style="{StaticResource Pictures_Preview_KinectItemsControlStyle}" ItemsSource="{Binding pictures}" ItemClick="kic_pictures_ItemClick">
+                        <k:KinectItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding uri}"/>
+                            </DataTemplate>
+                        </k:KinectItemsControl.ItemTemplate>
+                    </k:KinectItemsControl>
+                </Grid>
+            </DataTemplate>
+        </k:KinectItemsControl.ItemTemplate>
+    </k:KinectItemsControl>
 </UserControl>
