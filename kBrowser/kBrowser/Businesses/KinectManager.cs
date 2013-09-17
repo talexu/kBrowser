@@ -31,13 +31,13 @@ namespace kBrowser.Businesses
         public void initialize(KinectRegion kinectRegion, KinectSensorChooserUI sensorChooserUi)
         {
             // initialize the sensor chooser and UI
-            this._sensorChooser = new KinectSensorChooser();
-            this._sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
-            sensorChooserUi.KinectSensorChooser = this._sensorChooser;
-            this._sensorChooser.Start();
+            _sensorChooser = new KinectSensorChooser();
+            _sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
+            sensorChooserUi.KinectSensorChooser = _sensorChooser;
+            _sensorChooser.Start();
 
             // Bind the sensor chooser's current sensor to the KinectRegion
-            var regionSensorBinding = new Binding("Kinect") { Source = this._sensorChooser };
+            var regionSensorBinding = new Binding("Kinect") { Source = _sensorChooser };
             BindingOperations.SetBinding(kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
         }
 
@@ -93,7 +93,10 @@ namespace kBrowser.Businesses
 
         public void StopKinect()
         {
-            this._sensorChooser.Stop();
+            if (_sensorChooser != null)
+            {
+                _sensorChooser.Stop();
+            }
         }
     }
 }

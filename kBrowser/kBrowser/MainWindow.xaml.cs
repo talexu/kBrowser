@@ -24,7 +24,7 @@ namespace kBrowser
         {
             InitializeComponent();
 
-            KinectManager.instance.initialize(kinectRegion, sensorChooserUi);
+            //KinectManager.instance.initialize(kinectRegion, sensorChooserUi);
             DataManager.instance.LoadDemo();
             v_overall.DataContext = DataManager.instance;
         }
