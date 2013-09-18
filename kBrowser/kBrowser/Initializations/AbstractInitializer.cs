@@ -16,7 +16,7 @@ namespace kBrowser.Initializations
         public AbstractInitializer(IDictionary<string, object> parameters)
         {
             _parameters = parameters;
-            _s = TypeHelper.GetFromIDictionary<AbstractInitializer>(_parameters, Config.k_decoratedInitializer);
+            _s = TypeHelper.GetObjectFromIDictionary<AbstractInitializer>(_parameters, Config.k_decoratedInitializer);
         }
 
         public virtual void run()

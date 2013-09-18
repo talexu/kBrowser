@@ -1,4 +1,5 @@
 ﻿using kBrowser.Businesses;
+using kBrowser.Models.Entity;
 using kBrowser.Models.View;
 using kBrowser.Utilities;
 using System;
@@ -28,8 +29,8 @@ namespace kBrowser
 
             v_overall.DataContext = ViewModels.instance;
 
-            ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.overall, TypeHelper.ToType<FrameworkElement>(v_overall)));
-            ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.picture, TypeHelper.ToType<FrameworkElement>(v_picture)));
+            RegisterView(ViewType.overall, v_overall);
+            RegisterView(ViewType.picture, v_picture);
 
             //Commons.getNonKinectInitializer().run();
             IDictionary<string, object> parameters = new Dictionary<string, object>();
@@ -57,6 +58,14 @@ namespace kBrowser
             //            }));
             //    }));
             //th.Start();
+        }
+
+        private void RegisterView(ViewType viewType, FrameworkElement view)
+        {
+            IDictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add(Config.k_viewType, viewType);
+            parameters.Add(Config.k_frameworkElement, view);
+            ViewCommands.registerViewCommand.Execute(parameters);
         }
     }
 }

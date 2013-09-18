@@ -25,7 +25,7 @@ namespace kBrowser.Commands.View
 
         public override void Execute(object parameter)
         {
-            TypeHelper.GetFromIDictionary<ViewType, FrameworkElement>(_views, ViewType.picture).DataContext = parameter;
+            TypeHelper.GetObjectFromIDictionary<ViewType, FrameworkElement>(_views, ViewType.picture).DataContext = parameter;
         }
     }
 }

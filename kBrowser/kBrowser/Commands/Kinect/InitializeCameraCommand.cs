@@ -1,4 +1,5 @@
-﻿using kBrowser.Utilities;
+﻿using kBrowser.Businesses;
+using kBrowser.Utilities;
 using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
@@ -20,11 +21,11 @@ namespace kBrowser.Commands.Kinect
 
         public override void Execute(object parameter)
         {
-            Tuple<KinectRegion, KinectSensorChooserUI> k = TypeHelper.ToType<Tuple<KinectRegion, KinectSensorChooserUI>>(parameter);
-            if (k != null)
+            IDictionary<string, object> parameters = TypeHelper.ToType<IDictionary<string, object>>(parameter);
+            if (parameters != null)
             {
-                KinectRegion kinectRegion = k.Item1;
-                KinectSensorChooserUI sensorChooserUi = k.Item2;
+                KinectRegion kinectRegion = TypeHelper.GetObjectFromIDictionary<KinectRegion>(parameters, Config.k_kinectRegion);
+                KinectSensorChooserUI sensorChooserUi = TypeHelper.GetObjectFromIDictionary<KinectSensorChooserUI>(parameters, Config.k_kinectSensorChooserUI);
 
                 // initialize the sensor chooser and UI
                 _sensorChooser = new KinectSensorChooser();

@@ -1,4 +1,5 @@
-﻿using kBrowser.Models.View;
+﻿using kBrowser.Businesses;
+using kBrowser.Models.View;
 using kBrowser.Utilities;
 using System;
 using System.Collections.Generic;
@@ -19,24 +20,12 @@ namespace kBrowser.Commands.View
 
         public override bool CanExecute(object parameter)
         {
-            if (_views != null)
-            {
-                Tuple<ViewType, FrameworkElement> vf = TypeHelper.ToType<Tuple<ViewType, FrameworkElement>>(parameter);
-                if (vf != null)
-                {
-                    return !_views.ContainsKey(TypeHelper.ToEnum<ViewType>(vf.Item1));
-                }
-            }
-            return false;
+            return true;
         }
 
         public override void Execute(object parameter)
         {
-            Tuple<ViewType, FrameworkElement> vf = TypeHelper.ToType<Tuple<ViewType, FrameworkElement>>(parameter);
-            if (vf != null)
-            {
-                _views.Add(vf.Item1, vf.Item2);
-            }
+            _views.Add(TypeHelper.GetEnumFromIDictionary<ViewType>(parameter, Config.k_viewType), TypeHelper.GetObjectFromIDictionary<FrameworkElement>(parameter, Config.k_frameworkElement));
         }
     }
 }

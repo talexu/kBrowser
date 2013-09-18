@@ -18,7 +18,7 @@ namespace kBrowser.Initializations
         public DataInitializer(IDictionary<string, object> parameter)
             : base(parameter)
         {
-            _loadDataCommand = TypeHelper.GetFromIDictionary<ICommand>(_parameters, Config.k_loadDataCommand);
+            _loadDataCommand = TypeHelper.GetObjectFromIDictionary<ICommand>(_parameters, Config.k_loadDataCommand);
         }
 
         public override void run()

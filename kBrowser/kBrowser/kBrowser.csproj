@@ -92,6 +92,7 @@
     <Compile Include="Initializations\KinectSoundInitializer.cs" />
     <Compile Include="Models\Entity\Picture.cs" />
     <Compile Include="Models\Entity\PictureFolder.cs" />
+    <Compile Include="Models\Entity\SoDictionary.cs" />
     <Compile Include="Models\View\ViewType.cs" />
     <Compile Include="Utilities\TypeHelper.cs" />
     <Compile Include="Views\OverallView.xaml.cs">
