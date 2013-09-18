@@ -19,12 +19,8 @@ namespace kBrowser.Businesses
     {
         public static AbstractInitializer getNonKinectInitializer()
         {
-            IDictionary<string, object> parameters = new SoDictionary();
-
-            parameters.Add(Config.k_loadDataCommand, ModelCommands.loadPicturesCommand);
-
             IInitializerFactory factory = new InitializerFactory();
-            return factory.createNonKinectInitializer(parameters);
+            return factory.createNonKinectInitializer(new SoDictionary(Config.k_loadDataCommand, ModelCommands.loadPicturesCommand));
         }
 
         public static AbstractInitializer getInitializer(IDictionary<string, object> parameters = null)

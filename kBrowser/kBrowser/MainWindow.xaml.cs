@@ -33,9 +33,7 @@ namespace kBrowser
             RegisterView(ViewType.picture, v_picture);
 
             //Commons.getNonKinectInitializer().run();
-            SoDictionary parameters = new SoDictionary();
-            parameters.Add(Config.k_kinectRegion, kinectRegion);
-            parameters.Add(Config.k_kinectSensorChooserUI, sensorChooserUi);
+            SoDictionary parameters = new SoDictionary(Config.k_kinectRegion, kinectRegion, Config.k_kinectSensorChooserUI, sensorChooserUi);
             Commons.getInitializer(parameters).run();
         }
 
@@ -51,9 +49,7 @@ namespace kBrowser
 
         private void RegisterView(ViewType viewType, FrameworkElement view)
         {
-            SoDictionary parameters = new SoDictionary();
-            parameters.Add(Config.k_viewType, viewType);
-            parameters.Add(Config.k_frameworkElement, view);
+            SoDictionary parameters = new SoDictionary(Config.k_viewType, viewType, Config.k_frameworkElement, view);
             ViewCommands.registerViewCommand.Execute(parameters);
         }
     }

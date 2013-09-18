@@ -1,4 +1,6 @@
-﻿using kBrowser.Models.View;
+﻿using kBrowser.Businesses;
+using kBrowser.Models.View;
+using kBrowser.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,10 +14,10 @@ namespace kBrowser.Commands.View
     {
         private ICommand _jumpToViewCommand, _loadPictureDataCommand;
 
-        public OpenPictureCommand(ICommand jumpToViewCommand, ICommand loadPictureDataCommand)
+        public OpenPictureCommand(IDictionary<string, object> parameters)
         {
-            _jumpToViewCommand = jumpToViewCommand;
-            _loadPictureDataCommand = loadPictureDataCommand;
+            _jumpToViewCommand = TypeHelper.GetObjectFromIDictionary<ICommand>(parameters, Config.k_jumpToViewCommand);
+            _loadPictureDataCommand = TypeHelper.GetObjectFromIDictionary<ICommand>(parameters, Config.k_loadPictureDataCommand);
         }
 
         public bool CanExecute(object parameter)

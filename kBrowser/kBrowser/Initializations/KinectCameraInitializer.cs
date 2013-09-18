@@ -28,9 +28,7 @@ namespace kBrowser.Initializations
 
         public override void run()
         {
-            SoDictionary parameters = new SoDictionary();
-            parameters.Add(Config.k_kinectRegion, _kinectRegion);
-            parameters.Add(Config.k_kinectSensorChooserUI, _kinectSensorChooserUI);
+            SoDictionary parameters = new SoDictionary(Config.k_kinectRegion, _kinectRegion, Config.k_kinectSensorChooserUI, _kinectSensorChooserUI);
             _initializeKinectCameraCommand.Execute(parameters);
             base.run();
         }

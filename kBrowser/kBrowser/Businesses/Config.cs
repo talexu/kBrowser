@@ -17,6 +17,8 @@ namespace kBrowser.Businesses
         // command
         public const string k_loadDataCommand = "loadDataCommand";
         public const string k_initlizeKinectCameraCommand = "initializeKinectCameraCommand";
+        public const string k_jumpToViewCommand = "jumpToViewCommand";
+        public const string k_loadPictureDataCommand = "loadPictureDataCommand";
 
         // property
         public const string k_decoratedInitializer = "decoratedInitializer";
