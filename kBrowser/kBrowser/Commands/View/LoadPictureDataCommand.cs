@@ -20,11 +20,7 @@ namespace kBrowser.Commands.View
 
         public override bool CanExecute(object parameter)
         {
-            if (_views != null)
-            {
-                return _views.ContainsKey(ViewType.picture);
-            }
-            return false;
+            return true;
         }
 
         public override void Execute(object parameter)

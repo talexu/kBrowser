@@ -34,9 +34,31 @@ namespace kBrowser.Commands.Model
                 foreach (var folderURI in System.IO.Directory.EnumerateDirectories(uri))
                 {
                     PictureFolder folder = new PictureFolder(folderURI);
+                    Picture firstPicture = null, lastPicture = null, currentPicture = null;
                     foreach (var pictureURI in System.IO.Directory.EnumerateFiles(folderURI))
                     {
-                        folder.pictures.Add(new Picture(pictureURI));
+                        currentPicture = new Picture(pictureURI)
+                        {
+                            lastPicture = lastPicture
+                        };
+
+                        if (lastPicture != null)
+                        {
+                            lastPicture.nextPicture = currentPicture;
+                        }
+                        else
+                        {
+                            firstPicture = currentPicture;
+                        }
+
+                        folder.pictures.Add(currentPicture);
+
+                        lastPicture = currentPicture;
+                    }
+                    if (firstPicture != null && currentPicture != null)
+                    {
+                        firstPicture.lastPicture = currentPicture;
+                        currentPicture.nextPicture = firstPicture;
                     }
                     _folders.Add(folder);
                 }

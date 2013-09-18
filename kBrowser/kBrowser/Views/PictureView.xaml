@@ -19,6 +19,8 @@
         </StackPanel>
         <Grid Grid.Row="1">
             <Image Source="{Binding uri}"/>
+            <k:KinectTileButton HorizontalAlignment="Left" VerticalAlignment="Top" Command="{x:Static b:ViewCommands.loadPictureCommand}" CommandParameter="{Binding lastPicture}"/>
+            <k:KinectTileButton HorizontalAlignment="Right" VerticalAlignment="Top" Command="{x:Static b:ViewCommands.loadPictureCommand}" CommandParameter="{Binding nextPicture}"/>
         </Grid>
     </Grid>
 </UserControl>

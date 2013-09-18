@@ -13,6 +13,7 @@ namespace kBrowser.Businesses
     {
         public static ICommand registerViewCommand = new RegisterViewCommand(ViewModels.instance.views);
         public static ICommand jumpToViewCommand = new JumpToViewCommand(ViewModels.instance.views);
-        public static ICommand openPictureCommand = new OpenPictureCommand(jumpToViewCommand, new LoadPictureDataCommand(ViewModels.instance.views));
+        public static ICommand loadPictureCommand = new LoadPictureDataCommand(ViewModels.instance.views);
+        public static ICommand openPictureCommand = new OpenPictureCommand(jumpToViewCommand, loadPictureCommand);
     }
 }
