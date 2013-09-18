@@ -17,17 +17,11 @@ namespace kBrowser.Businesses
 {
     class Commons
     {
-        private static readonly KinectSensorChooser _sensorChooser = null;
-
-        public static ICommand loadPicturesCommand = new LoadDemoDataCommand(ViewModels.instance.folders);
-        public static ICommand initKinectCameraCommand = new InitializeCameraCommand(_sensorChooser);
-        public static ICommand stopKinect = new StopKinectCommand(_sensorChooser);
-
         public static AbstractInitializer getNonKinectInitializer()
         {
             IDictionary<string, object> parameters = new SoDictionary();
 
-            parameters.Add(Config.k_loadDataCommand, loadPicturesCommand);
+            parameters.Add(Config.k_loadDataCommand, ModelCommands.loadPicturesCommand);
 
             IInitializerFactory factory = new InitializerFactory();
             return factory.createNonKinectInitializer(parameters);
@@ -37,8 +31,8 @@ namespace kBrowser.Businesses
         {
             parameters = parameters == null ? new SoDictionary() : parameters;
 
-            parameters.Add(Config.k_loadDataCommand, loadPicturesCommand);
-            parameters.Add(Config.k_initlizeKinectCameraCommand, initKinectCameraCommand);
+            parameters.Add(Config.k_loadDataCommand, ModelCommands.loadPicturesCommand);
+            parameters.Add(Config.k_initlizeKinectCameraCommand, KinectCommands.initKinectCameraCommand);
 
             IInitializerFactory factory = new InitializerFactory();
             return factory.createInitializer(parameters);

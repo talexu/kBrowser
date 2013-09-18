@@ -41,7 +41,7 @@ namespace kBrowser
 
         private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Commons.stopKinect.Execute(null);
+            KinectCommands.stopKinect.Execute(null);
         }
 
         private void main_win_Loaded(object sender, RoutedEventArgs e)

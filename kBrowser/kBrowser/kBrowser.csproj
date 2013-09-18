@@ -70,6 +70,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Businesses\Commons.cs" />
+    <Compile Include="Businesses\KinectCommands.cs" />
+    <Compile Include="Businesses\ModelCommands.cs" />
     <Compile Include="Businesses\ViewModels.cs" />
     <Compile Include="Businesses\ViewCommands.cs" />
     <Compile Include="Businesses\Config.cs" />
