@@ -16,7 +16,7 @@ namespace kBrowser.Initializations
         public KinectInitializer(IDictionary<string, object> parameters)
             : base(parameters)
         {
-            _sensorChooser = TypeHelper.GetFromIDictionary<string, object, KinectSensorChooser>(_parameters, Config.k_sensorChooser);
+            _sensorChooser = TypeHelper.GetFromIDictionary<KinectSensorChooser>(_parameters, Config.k_sensorChooser);
         }
     }
 }

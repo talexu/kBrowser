@@ -42,5 +42,10 @@ namespace kBrowser.Utilities
             V value = GetFromIDictionary<K, V>(dic, key);
             return ToType<T>(value);
         }
+
+        public static T GetFromIDictionary<T>(IDictionary<string, object> dic, string key)
+        {
+            return GetFromIDictionary<string, object, T>(dic, key);
+        }
     }
 }
