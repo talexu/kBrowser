@@ -1,5 +1,7 @@
 ﻿using kBrowser.Commands.Kinect;
 using kBrowser.Commands.Model;
+using kBrowser.Factories;
+using kBrowser.Initializations;
 using kBrowser.Utilities;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
@@ -12,7 +14,7 @@ using System.Windows.Input;
 
 namespace kBrowser.Businesses
 {
-    class Initializations
+    class Commons
     {
         private static readonly KinectSensorChooser _sensorChooser = null;
 
@@ -20,12 +22,12 @@ namespace kBrowser.Businesses
         public static ICommand initKinectCameraCommand = new InitializeCameraCommand(_sensorChooser);
         public static ICommand stopKinect = new StopKinectCommand(_sensorChooser);
 
-        public static void Initialize(IDictionary<string, object> initializationParameters = null)
+        public static AbstractInitializer getNonKinectInitializer()
         {
-            loadPicturesCommand.Execute(System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, Config.pictureFolder));
-            //initKinectCameraCommand.Execute(
-            //    new Tuple<KinectRegion, KinectSensorChooserUI>(
-            //        TypeHelper.ToType<KinectRegion>(initializationParameters["kinectRegion"]), TypeHelper.ToType<KinectSensorChooserUI>(initializationParameters["sensorChooserUi"])));
+            IDictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add(Config.k_loadDataCommand, loadPicturesCommand);
+            IInitializerFactory factory = new InitializerFactory();
+            return factory.createNonKinectInitializer(parameters);
         }
     }
 }

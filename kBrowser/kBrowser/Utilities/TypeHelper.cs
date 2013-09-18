@@ -29,5 +29,18 @@ namespace kBrowser.Utilities
             }
             return resultInputType;
         }
+
+        public static V GetFromIDictionary<K, V>(IDictionary<K, V> dic, K key)
+        {
+            V value;
+            dic.TryGetValue(key, out value);
+            return value;
+        }
+
+        public static T GetFromIDictionary<K, V, T>(IDictionary<K, V> dic, K key)
+        {
+            V value = GetFromIDictionary<K, V>(dic, key);
+            return ToType<T>(value);
+        }
     }
 }

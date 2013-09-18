@@ -30,26 +30,29 @@ namespace kBrowser
 
             ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.overall, TypeHelper.ToType<FrameworkElement>(v_overall)));
             ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.picture, TypeHelper.ToType<FrameworkElement>(v_picture)));
+
+            Commons.getNonKinectInitializer().run();
         }
 
         private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            Initializations.stopKinect.Execute(null);
+            Commons.stopKinect.Execute(null);
         }
 
         private void main_win_Loaded(object sender, RoutedEventArgs e)
         {
-            System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
-                {
-                    Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.SystemIdle, new Action(() =>
-                        {
-                            IDictionary<string, object> parameters = new Dictionary<string, object>();
-                            parameters.Add("kinectRegion", kinectRegion);
-                            parameters.Add("sensorChooserUi", sensorChooserUi);
-                            Initializations.Initialize(parameters);
-                        }));
-                }));
-            th.Start();
+            //System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
+            //    {
+            //        Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.SystemIdle, new Action(() =>
+            //            {
+            //                IDictionary<string, object> parameters = new Dictionary<string, object>();
+            //                parameters.Add("kinectRegion", kinectRegion);
+            //                parameters.Add("sensorChooserUi", sensorChooserUi);
+
+            //                Commons.getNonKinectInitializer().run();
+            //            }));
+            //    }));
+            //th.Start();
         }
     }
 }

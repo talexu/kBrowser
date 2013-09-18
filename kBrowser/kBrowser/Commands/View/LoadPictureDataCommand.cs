@@ -1,4 +1,5 @@
 ﻿using kBrowser.Models.View;
+using kBrowser.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace kBrowser.Commands.View
 
         public override void Execute(object parameter)
         {
-            _views[ViewType.picture].DataContext = parameter;
+            TypeHelper.GetFromIDictionary<ViewType, FrameworkElement>(_views, ViewType.picture).DataContext = parameter;
         }
     }
 }

@@ -69,7 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Businesses\Initializations.cs" />
+    <Compile Include="Businesses\Commons.cs" />
     <Compile Include="Businesses\ViewModels.cs" />
     <Compile Include="Businesses\ViewCommands.cs" />
     <Compile Include="Businesses\Config.cs" />
@@ -84,6 +84,13 @@
     <Compile Include="Commands\View\LoadPictureDataCommand.cs" />
     <Compile Include="Commands\View\OpenPictureCommand.cs" />
     <Compile Include="Commands\View\RegisterViewCommand.cs" />
+    <Compile Include="Factories\IInitializerFactory.cs" />
+    <Compile Include="Factories\InitializerFactory.cs" />
+    <Compile Include="Initializations\DataInitializer.cs" />
+    <Compile Include="Initializations\AbstractInitializer.cs" />
+    <Compile Include="Initializations\KinectCameraInitializer.cs" />
+    <Compile Include="Initializations\KinectInitializer.cs" />
+    <Compile Include="Initializations\KinectSoundInitializer.cs" />
     <Compile Include="Models\Entity\Picture.cs" />
     <Compile Include="Models\Entity\PictureFolder.cs" />
     <Compile Include="Models\View\ViewType.cs" />
@@ -148,6 +155,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -160,7 +168,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\Common\" />
-    <Folder Include="Factories\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Demo\Maki Kuraki\24_balln.jpg">
