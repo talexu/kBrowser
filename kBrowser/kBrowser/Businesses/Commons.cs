@@ -2,6 +2,7 @@
 using kBrowser.Commands.Model;
 using kBrowser.Factories;
 using kBrowser.Initializations;
+using kBrowser.Models.Entity;
 using kBrowser.Utilities;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
@@ -24,7 +25,7 @@ namespace kBrowser.Businesses
 
         public static AbstractInitializer getNonKinectInitializer()
         {
-            IDictionary<string, object> parameters = new Dictionary<string, object>();
+            IDictionary<string, object> parameters = new SoDictionary();
 
             parameters.Add(Config.k_loadDataCommand, loadPicturesCommand);
 
@@ -34,7 +35,7 @@ namespace kBrowser.Businesses
 
         public static AbstractInitializer getInitializer(IDictionary<string, object> parameters = null)
         {
-            parameters = parameters == null ? new Dictionary<string, object>() : parameters;
+            parameters = parameters == null ? new SoDictionary() : parameters;
 
             parameters.Add(Config.k_loadDataCommand, loadPicturesCommand);
             parameters.Add(Config.k_initlizeKinectCameraCommand, initKinectCameraCommand);

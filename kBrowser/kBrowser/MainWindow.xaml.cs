@@ -33,7 +33,7 @@ namespace kBrowser
             RegisterView(ViewType.picture, v_picture);
 
             //Commons.getNonKinectInitializer().run();
-            IDictionary<string, object> parameters = new Dictionary<string, object>();
+            SoDictionary parameters = new SoDictionary();
             parameters.Add(Config.k_kinectRegion, kinectRegion);
             parameters.Add(Config.k_kinectSensorChooserUI, sensorChooserUi);
             Commons.getInitializer(parameters).run();
@@ -46,23 +46,12 @@ namespace kBrowser
 
         private void main_win_Loaded(object sender, RoutedEventArgs e)
         {
-            //System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(() =>
-            //    {
-            //        Application.Current.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.SystemIdle, new Action(() =>
-            //            {
-            //                IDictionary<string, object> parameters = new Dictionary<string, object>();
-            //                parameters.Add("kinectRegion", kinectRegion);
-            //                parameters.Add("sensorChooserUi", sensorChooserUi);
 
-            //                Commons.getNonKinectInitializer().run();
-            //            }));
-            //    }));
-            //th.Start();
         }
 
         private void RegisterView(ViewType viewType, FrameworkElement view)
         {
-            IDictionary<string, object> parameters = new Dictionary<string, object>();
+            SoDictionary parameters = new SoDictionary();
             parameters.Add(Config.k_viewType, viewType);
             parameters.Add(Config.k_frameworkElement, view);
             ViewCommands.registerViewCommand.Execute(parameters);
