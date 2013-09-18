@@ -253,7 +253,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Documents\Visual Studio 2012\Projects\Slider Blog Solution\Microsoft.Samples.Kinect.Controls\Microsoft.Samples.Kinect.Controls.csproj">
+    <ProjectReference Include="..\Microsoft.Samples.Kinect.Controls\Microsoft.Samples.Kinect.Controls.csproj">
       <Project>{ba1523b1-90c7-41ed-9803-0791f7d56724}</Project>
       <Name>Microsoft.Samples.Kinect.Controls</Name>
     </ProjectReference>
