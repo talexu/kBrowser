@@ -252,6 +252,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Documents\Visual Studio 2012\Projects\Slider Blog Solution\Microsoft.Samples.Kinect.Controls\Microsoft.Samples.Kinect.Controls.csproj">
+      <Project>{ba1523b1-90c7-41ed-9803-0791f7d56724}</Project>
+      <Name>Microsoft.Samples.Kinect.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

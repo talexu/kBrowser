@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "kBrowser", "kBrowser\kBrowser.csproj", "{89B1C0BD-C8EA-4A8A-BD9D-2F77704593D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Samples.Kinect.Controls", "..\..\..\..\Documents\Visual Studio 2012\Projects\Slider Blog Solution\Microsoft.Samples.Kinect.Controls\Microsoft.Samples.Kinect.Controls.csproj", "{BA1523B1-90C7-41ED-9803-0791F7D56724}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{89B1C0BD-C8EA-4A8A-BD9D-2F77704593D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89B1C0BD-C8EA-4A8A-BD9D-2F77704593D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89B1C0BD-C8EA-4A8A-BD9D-2F77704593D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1523B1-90C7-41ED-9803-0791F7D56724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1523B1-90C7-41ED-9803-0791F7D56724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1523B1-90C7-41ED-9803-0791F7D56724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1523B1-90C7-41ED-9803-0791F7D56724}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
