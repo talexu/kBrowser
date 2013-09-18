@@ -31,7 +31,11 @@ namespace kBrowser
             ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.overall, TypeHelper.ToType<FrameworkElement>(v_overall)));
             ViewCommands.registerViewCommand.Execute(new Tuple<ViewType, FrameworkElement>(ViewType.picture, TypeHelper.ToType<FrameworkElement>(v_picture)));
 
-            Commons.getNonKinectInitializer().run();
+            //Commons.getNonKinectInitializer().run();
+            IDictionary<string, object> parameters = new Dictionary<string, object>();
+            parameters.Add(Config.k_kinectRegion, kinectRegion);
+            parameters.Add(Config.k_kinectSensorChooserUI, sensorChooserUi);
+            Commons.getInitializer(parameters).run();
         }
 
         private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)

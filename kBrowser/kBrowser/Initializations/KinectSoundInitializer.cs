@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace kBrowser.Initializations
 {
-    class KinectSoundInitializer : KinectInitializer
+    class KinectSoundInitializer : AbstractInitializer
     {
         public KinectSoundInitializer(IDictionary<string, object> parameters)
             : base(parameters)
@@ -15,7 +15,8 @@ namespace kBrowser.Initializations
 
         public override void run()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            base.run();
         }
     }
 }

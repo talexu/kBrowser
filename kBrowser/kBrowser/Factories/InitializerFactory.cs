@@ -1,4 +1,5 @@
-﻿using kBrowser.Initializations;
+﻿using kBrowser.Businesses;
+using kBrowser.Initializations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,20 @@ namespace kBrowser.Factories
 {
     class InitializerFactory : IInitializerFactory
     {
-        public Initializations.AbstractInitializer createNonKinectInitializer(IDictionary<string, object> parameters)
+        public AbstractInitializer createNonKinectInitializer(IDictionary<string, object> parameters)
         {
             AbstractInitializer initializer = new DataInitializer(parameters);
+            return initializer;
+        }
+
+        public AbstractInitializer createInitializer(IDictionary<string, object> parameters)
+        {
+            AbstractInitializer initializer = new DataInitializer(parameters);
+            parameters.Add(Config.k_decoratedInitializer, initializer);
+            initializer = new KinectCameraInitializer(parameters);
+            parameters[Config.k_decoratedInitializer] = initializer;
+            initializer = new KinectSoundInitializer(parameters);
+
             return initializer;
         }
     }

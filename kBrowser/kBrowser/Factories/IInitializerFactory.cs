@@ -10,5 +10,6 @@ namespace kBrowser.Factories
     interface IInitializerFactory
     {
         AbstractInitializer createNonKinectInitializer(IDictionary<string, object> parameters);
+        AbstractInitializer createInitializer(IDictionary<string, object> parameters);
     }
 }

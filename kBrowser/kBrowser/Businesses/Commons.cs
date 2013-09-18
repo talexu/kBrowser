@@ -25,9 +25,22 @@ namespace kBrowser.Businesses
         public static AbstractInitializer getNonKinectInitializer()
         {
             IDictionary<string, object> parameters = new Dictionary<string, object>();
+
             parameters.Add(Config.k_loadDataCommand, loadPicturesCommand);
+
             IInitializerFactory factory = new InitializerFactory();
             return factory.createNonKinectInitializer(parameters);
+        }
+
+        public static AbstractInitializer getInitializer(IDictionary<string, object> parameters = null)
+        {
+            parameters = parameters == null ? new Dictionary<string, object>() : parameters;
+
+            parameters.Add(Config.k_loadDataCommand, loadPicturesCommand);
+            parameters.Add(Config.k_initlizeKinectCameraCommand, initKinectCameraCommand);
+
+            IInitializerFactory factory = new InitializerFactory();
+            return factory.createInitializer(parameters);
         }
     }
 }
