@@ -31,5 +31,26 @@ namespace kBrowser.Commands.View
         public event EventHandler CanExecuteChanged;
 
         public abstract void Execute(object parameter);
+
+        protected void LoadPictureData(bool isNext = true)
+        {
+            FrameworkElement v = TypeHelper.GetObjectFromIDictionary<ViewType, FrameworkElement>(_views, ViewType.picture);
+            if (v != null)
+            {
+                Picture curPicture = TypeHelper.ToType<Picture>(v.DataContext);
+                if (curPicture != null)
+                {
+                    switch (isNext)
+                    {
+                        case true:
+                            _loadPictureDataCommand.Execute(curPicture.nextPicture);
+                            break;
+                        default:
+                            _loadPictureDataCommand.Execute(curPicture.lastPicture);
+                            break;
+                    }
+                }
+            }
+        }
     }
 }

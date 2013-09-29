@@ -19,12 +19,7 @@ namespace kBrowser.Commands.View
 
         public override void Execute(object parameter)
         {
-            FrameworkElement v = TypeHelper.GetObjectFromIDictionary<ViewType, FrameworkElement>(_views, ViewType.picture);
-            if (v != null)
-            {
-                Picture curPicture = TypeHelper.ToType<Picture>(v.DataContext);
-                _loadPictureDataCommand.Execute(curPicture.lastPicture);
-            }
+            LoadPictureData(false);
         }
     }
 }
