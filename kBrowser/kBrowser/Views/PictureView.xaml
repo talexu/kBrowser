@@ -16,8 +16,8 @@
                 ←
             </k:KinectCircleButton>
             <TextBlock Text="{Binding fileName}"/>
-            <k:KinectCircleButton Height="100" Label="Preview" Command="{x:Static b:ViewCommands.loadPictureCommand}" CommandParameter="{Binding lastPicture}"/>
-            <k:KinectCircleButton Height="100" Label="Next" Command="{x:Static b:ViewCommands.loadPictureCommand}" CommandParameter="{Binding nextPicture}"/>
+            <k:KinectCircleButton Height="100" Label="Preview" Command="{x:Static b:ViewCommands.loadPreviousPictureCommand}"/>
+            <k:KinectCircleButton Height="100" Label="Next" Command="{x:Static b:ViewCommands.loadNextPictureCommand}"/>
         </StackPanel>
         <Grid Grid.Row="1">
             <Image Source="{Binding uri}" RenderTransformOrigin="0.5,0.5">

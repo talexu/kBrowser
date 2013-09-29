@@ -24,6 +24,7 @@ namespace kBrowser.Businesses
         public const string k_decoratedInitializer = "decoratedInitializer";
 
         // view
+        public const string k_views = "views";
         public const string k_viewType = "viewType";
         public const string k_frameworkElement = "frameworkElement";
         #endregion

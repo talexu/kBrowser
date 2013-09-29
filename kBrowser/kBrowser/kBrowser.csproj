@@ -83,8 +83,11 @@
     <Compile Include="Commands\Model\LoadDemoDataCommand.cs" />
     <Compile Include="Commands\View\AbstractViewCommand.cs" />
     <Compile Include="Commands\View\JumpToViewCommand.cs" />
+    <Compile Include="Commands\View\LoadNextPictureDataCommand.cs" />
     <Compile Include="Commands\View\LoadPictureDataCommand.cs" />
+    <Compile Include="Commands\View\LoadPreviousPictureDataCommand.cs" />
     <Compile Include="Commands\View\OpenPictureCommand.cs" />
+    <Compile Include="Commands\View\AbstractLoadPNPictureDataCommand.cs" />
     <Compile Include="Commands\View\RegisterViewCommand.cs" />
     <Compile Include="Factories\IInitializerFactory.cs" />
     <Compile Include="Factories\InitializerFactory.cs" />

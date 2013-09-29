@@ -16,5 +16,7 @@ namespace kBrowser.Businesses
         public static ICommand jumpToViewCommand = new JumpToViewCommand(ViewModels.instance.views);
         public static ICommand loadPictureCommand = new LoadPictureDataCommand(ViewModels.instance.views);
         public static ICommand openPictureCommand = new OpenPictureCommand(new SoDictionary(Config.k_jumpToViewCommand, jumpToViewCommand, Config.k_loadPictureDataCommand, loadPictureCommand));
+        public static ICommand loadPreviousPictureCommand = new LoadPreviousPictureDataCommand(new SoDictionary(Config.k_loadPictureDataCommand, loadPictureCommand, Config.k_views, ViewModels.instance.views));
+        public static ICommand loadNextPictureCommand = new LoadNextPictureDataCommand(new SoDictionary(Config.k_loadPictureDataCommand, loadPictureCommand, Config.k_views, ViewModels.instance.views));
     }
 }
