@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:k="http://schemas.microsoft.com/kinect/2013">
+    <Style TargetType="{x:Type k:KinectScrollViewer}">
+        <Setter Property="ContentMargin" Value="50"/>
+        <Setter Property="HoverBackground" Value="#7F505050"/>
+    </Style>
+</ResourceDictionary>

@@ -5,5 +5,6 @@
         <ResourceDictionary Source="ItemsControl.xaml"/>
         <ResourceDictionary Source="KinectItemsControl.xaml"/>
         <ResourceDictionary Source="TextBlock.xaml"/>
+        <ResourceDictionary Source="KinectScrollViewer.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
