@@ -5,6 +5,7 @@
         xmlns:v="clr-namespace:kBrowser.Views"
         Title="MainWindow" Height="576" Width="1024"
         x:Name="main_win" Loaded="main_win_Loaded" Closing="ControlsBasicsWindow_Closing">
+
     <k:KinectRegion x:Name="kinectRegion">
         <Grid>
             <v:OverallView x:Name="v_overall"/>

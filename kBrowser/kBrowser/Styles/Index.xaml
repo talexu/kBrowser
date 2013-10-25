@@ -4,5 +4,6 @@
         <ResourceDictionary Source="Border.xaml"/>
         <ResourceDictionary Source="ItemsControl.xaml"/>
         <ResourceDictionary Source="KinectItemsControl.xaml"/>
+        <ResourceDictionary Source="TextBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

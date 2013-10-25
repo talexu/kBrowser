@@ -54,6 +54,7 @@
                                 <VisualState x:Name="HandPointerOver">
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetProperty="Height" Storyboard.TargetName="Indicator" To="10" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Indicator" To="1" Duration="0:0:0.3" />
                                         <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="LoupeContainer" To="1" Duration="0:0:0.1" />
                                     </Storyboard>
                                 </VisualState>
@@ -66,6 +67,7 @@
                                             <EasingColorKeyFrame KeyTime="0" Value="White"/>
                                         </ColorAnimationUsingKeyFrames>
                                         <DoubleAnimation Storyboard.TargetProperty="Height" Storyboard.TargetName="Indicator" To="10" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Indicator" To="1" Duration="0:0:0.3" />
                                         <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="LoupeContainer" To="1" Duration="0" />
                                     </Storyboard>
                                 </VisualState>
@@ -90,7 +92,7 @@
                 			<Ellipse x:Name="Background" Width="80" Height="80"  Margin="5" Stroke="Purple" StrokeThickness="11" HorizontalAlignment="Left" VerticalAlignment="Top" />
                 			<Path x:Name="Point" Data="M60.7849,79.37297 L93.235091,89.355105 80.763533,55.812898 z" Margin="53.833,48.667,0,0" Stretch="Fill" Stroke="{x:Null}" Fill="Purple" Height="45.083" VerticalAlignment="Top" HorizontalAlignment="Left" Width="44.667"/>
                         </Grid>
-                        <Rectangle x:Name="Indicator" Width="20" Height="4" Fill="Red" VerticalAlignment="Center" HorizontalAlignment="Center" RadiusX="2" RadiusY="2"/>
+                        <Rectangle x:Name="Indicator" Width="20" Height="4" Fill="Red" VerticalAlignment="Center" HorizontalAlignment="Center" RadiusX="2" RadiusY="2" Opacity="0"/>
                 	</Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -129,6 +131,7 @@
                                 <VisualState x:Name="HandPointerOver">
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetProperty="Width" Storyboard.TargetName="Indicator" To="10" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Indicator" To="1" Duration="0:0:0.3" />
                                         <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="LoupeContainer" To="1" Duration="0:0:0.1" />
                                     </Storyboard>
                                 </VisualState>
@@ -141,6 +144,7 @@
                                             <EasingColorKeyFrame KeyTime="0" Value="White"/>
                                         </ColorAnimationUsingKeyFrames>
                                         <DoubleAnimation Storyboard.TargetProperty="Width" Storyboard.TargetName="Indicator" To="10" Duration="0:0:0.3" />
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="Indicator" To="1" Duration="0:0:0.3" />
                                         <DoubleAnimation Storyboard.TargetProperty="Opacity" Storyboard.TargetName="LoupeContainer" To="1" Duration="0" />
                                     </Storyboard>
                                 </VisualState>
@@ -165,7 +169,7 @@
                             <Ellipse x:Name="Background" Width="80" Height="80"  Margin="5" Stroke="Purple" StrokeThickness="11" HorizontalAlignment="Left" VerticalAlignment="Bottom" />
                             <Path x:Name="Point" Data="M77.797263,126.36963 L86.151917,94.377477 59.090105,110.00156 z" Margin="51.5,0,0,56.5" Stretch="Fill" Stroke="{x:Null}" Fill="Purple" Height="43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="37.25"/>
                         </Grid>
-                        <Rectangle x:Name="Indicator" Width="4" Height="20" Fill="Red" VerticalAlignment="Center" HorizontalAlignment="Center" RadiusX="2" RadiusY="2"/>
+                        <Rectangle x:Name="Indicator" Width="4" Height="20" Fill="Red" VerticalAlignment="Center" HorizontalAlignment="Center" RadiusX="2" RadiusY="2" Opacity="0"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
@@ -198,6 +202,9 @@
                                         <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="TrackBackground">
                                             <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="10"/>
                                         </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Opacity)" Storyboard.TargetName="TrackBackground">
+                                            <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                                        </DoubleAnimationUsingKeyFrames>
                                     </Storyboard>
                                 </VisualState>
                                 <VisualState x:Name="KinectDisabled"/>
@@ -211,7 +218,7 @@
                 			</Grid.RowDefinitions>
                 			<TickBar x:Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Placement="Top" Grid.Row="0" Visibility="Collapsed"/>
                 			<TickBar x:Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Placement="Bottom" Grid.Row="2" Visibility="Collapsed"/>
-                			<Border x:Name="TrackBackground" BorderBrush="{StaticResource HorizontalSliderTrackNormalBorder}" BorderThickness="1" Background="{StaticResource HorizontalSliderTrackNormalBackground}" CornerRadius="1" Height="4.0" Margin="90,0, 90, 0" Grid.Row="1" VerticalAlignment="center">
+                			<Border x:Name="TrackBackground" BorderBrush="{StaticResource HorizontalSliderTrackNormalBorder}" BorderThickness="1" Background="{StaticResource HorizontalSliderTrackNormalBackground}" CornerRadius="1" Height="4.0" Margin="90,0, 90, 0" Grid.Row="1" VerticalAlignment="center" Opacity="0">
                 				<Canvas Margin="-6,-1">
                 					<Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Height="4.0" Stroke="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" StrokeThickness="1.0" Visibility="Hidden"/>
                 				</Canvas>
@@ -256,6 +263,9 @@
                                                 <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="TrackBackground">
                                                     <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="10"/>
                                                 </DoubleAnimationUsingKeyFrames>
+                                                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Opacity)" Storyboard.TargetName="TrackBackground">
+                                                    <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1"/>
+                                                </DoubleAnimationUsingKeyFrames>
                                             </Storyboard>
                                         </VisualState>
                                         <VisualState x:Name="KinectDisabled"/>
@@ -269,7 +279,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TickBar x:Name="TopTick" Grid.Column="0" Fill="{TemplateBinding Foreground}" Placement="Left" Visibility="Collapsed" Width="4"/>
                                     <TickBar x:Name="BottomTick" Grid.Column="2" Fill="{TemplateBinding Foreground}" Placement="Right" Visibility="Collapsed" Width="4"/>
-                                    <Border x:Name="TrackBackground" BorderBrush="{StaticResource VerticalSliderTrackNormalBorder}" BorderThickness="1" Background="{StaticResource HorizontalSliderTrackNormalBackground}" Grid.Column="1" CornerRadius="1" HorizontalAlignment="center" Margin="0,90,0,90">
+                                    <Border x:Name="TrackBackground" BorderBrush="{StaticResource VerticalSliderTrackNormalBorder}" BorderThickness="1" Background="{StaticResource HorizontalSliderTrackNormalBackground}" Grid.Column="1" CornerRadius="1" HorizontalAlignment="center" Margin="0,90,0,90" Opacity="0">
                                         <Canvas Margin="-1,-6">
                                             <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Stroke="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" StrokeThickness="1.0" Visibility="Hidden" Width="4.0"/>
                                         </Canvas>

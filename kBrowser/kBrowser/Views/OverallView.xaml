@@ -14,7 +14,7 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Text="{Binding folderName}"/>
+                    <TextBlock Style="{StaticResource Header_TextBlock_Style}" Text="{Binding folderName}" Margin="20" VerticalAlignment="Bottom"/>
                     <ItemsControl Grid.Row="1" Style="{StaticResource Pictures_Preview_ItemsControlStyle}" ItemsSource="{Binding pictures}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
