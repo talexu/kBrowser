@@ -24,7 +24,7 @@
                     </Image.LayoutTransform>
                 </Image>
             </k:KinectScrollViewer>
-            <k:KinectSlider x:Name="sl_scale" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Stretch" Minimum="0" Maximum="5" Value="0.9"/>
+            <k:KinectSlider x:Name="sl_scale" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Stretch" Minimum="1" Maximum="5" Value="1"/>
             <k:KinectSlider x:Name="sl_rotate" HorizontalAlignment="Stretch" VerticalAlignment="Top" Minimum="-180" Maximum="180"/>
         </Grid>
         <StackPanel Orientation="Horizontal">
