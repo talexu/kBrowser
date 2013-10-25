@@ -91,8 +91,10 @@
     <Compile Include="Commands\View\RegisterViewCommand.cs" />
     <Compile Include="Factories\IInitializerFactory.cs" />
     <Compile Include="Factories\InitializerFactory.cs" />
+    <Compile Include="Initializations\Complex.cs" />
     <Compile Include="Initializations\DataInitializer.cs" />
     <Compile Include="Initializations\AbstractInitializer.cs" />
+    <Compile Include="Initializations\FreqAnalyzer.cs" />
     <Compile Include="Initializations\KinectCameraInitializer.cs" />
     <Compile Include="Initializations\KinectSoundInitializer.cs" />
     <Compile Include="Models\Entity\Picture.cs" />

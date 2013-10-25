@@ -36,28 +36,16 @@ namespace kBrowser
             RegisterView(ViewType.overall, v_overall);
             RegisterView(ViewType.picture, v_picture);
 
-            #region get a sensor
-            foreach (var potentialSensor in KinectSensor.KinectSensors)
-            {
-                if (potentialSensor.Status == KinectStatus.Connected)
-                {
-                    _sensor = potentialSensor;
-                    Console.WriteLine("sensor get");
-                    break;
-                }
-            }
-
-            #endregion
-
             //Commons.getNonKinectInitializer().run();
-            SoDictionary parameters = new SoDictionary(new object[] { Config.k_kinectRegion, kinectRegion, Config.k_kinectSensorChooserUI, sensorChooserUi, Config.k_sensor, _sensor });
-            //SoDictionary parameters = new SoDictionary(Config.k_kinectRegion, kinectRegion, Config.k_kinectSensorChooserUI, sensorChooserUi);
+            //SoDictionary parameters = new SoDictionary(new object[] { Config.k_kinectRegion, kinectRegion, Config.k_kinectSensorChooserUI, sensorChooserUi, Config.k_sensor, _sensor });
+            SoDictionary parameters = new SoDictionary(Config.k_kinectRegion, kinectRegion, Config.k_kinectSensorChooserUI, sensorChooserUi);
             Commons.getInitializer(parameters).run();
         }
 
         private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             KinectCommands.stopKinect.Execute(null);
+            KinectCommands.CloseWindow();  // Stop Audio
         }
 
         private void main_win_Loaded(object sender, RoutedEventArgs e)

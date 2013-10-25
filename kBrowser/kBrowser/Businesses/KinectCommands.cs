@@ -24,5 +24,14 @@ namespace kBrowser.Businesses
                 ScaleChanged(Delta);
             }
         }
+
+        public static event Action WindowClosed;
+        public static void CloseWindow()
+        {
+            if (WindowClosed != null)
+            {
+                WindowClosed();
+            }
+        }
     }
 }
