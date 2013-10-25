@@ -13,6 +13,7 @@ namespace kBrowser.Businesses
         public const string k_sensorChooser = "sensorChooser";
         public const string k_kinectRegion = "kinectRegion";
         public const string k_kinectSensorChooserUI = "kinectSensorChooserUI";
+        public const string k_sensor = "sensor";
 
         // command
         public const string k_loadDataCommand = "loadDataCommand";
