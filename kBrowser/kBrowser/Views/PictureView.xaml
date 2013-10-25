@@ -12,16 +12,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
-            <Image Source="{Binding uri}" RenderTransformOrigin="0.5,0.5">
-                <Image.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="{Binding Value, ElementName=sl_scale}" ScaleY="{Binding Value, ElementName=sl_scale}"/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="{Binding Value, ElementName=sl_rotate}"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Image.RenderTransform>
-            </Image>
+            <k:KinectScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Image Source="{Binding uri}" RenderTransformOrigin="0.5,0.5">
+                    <Image.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="{Binding Value, ElementName=sl_scale}" ScaleY="{Binding Value, ElementName=sl_scale}"/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="{Binding Value, ElementName=sl_rotate}"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.LayoutTransform>
+                </Image>
+            </k:KinectScrollViewer>
             <k:KinectSlider x:Name="sl_scale" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Stretch" Minimum="0" Maximum="5" Value="0.9"/>
             <k:KinectSlider x:Name="sl_rotate" HorizontalAlignment="Stretch" VerticalAlignment="Top" Minimum="-180" Maximum="180"/>
         </Grid>
