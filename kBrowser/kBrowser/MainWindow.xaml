@@ -4,7 +4,8 @@
         xmlns:k="http://schemas.microsoft.com/kinect/2013"
         xmlns:v="clr-namespace:kBrowser.Views"
         Title="MainWindow" Height="576" Width="1024"
-        x:Name="main_win" Loaded="main_win_Loaded" Closing="ControlsBasicsWindow_Closing">
+        x:Name="main_win" Loaded="main_win_Loaded" Closing="ControlsBasicsWindow_Closing"
+        WindowState="Maximized" WindowStyle="None">
 
     <k:KinectRegion x:Name="kinectRegion">
         <Grid>
