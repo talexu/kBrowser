@@ -36,7 +36,7 @@
             <k:KinectSlider x:Name="sl_rotate" HorizontalAlignment="Stretch" VerticalAlignment="Top" Minimum="-180" Maximum="180" Margin="0,0,20,0"/>
         </Grid>
         <StackPanel Orientation="Horizontal">
-            <k:KinectCircleButton Command="{x:Static b:ViewCommands.jumpToViewCommand}" CommandParameter="{x:Static b:ViewModels.overallViewType}" Height="120">
+            <k:KinectCircleButton Command="{x:Static b:ViewCommands.jumpToViewCommand}" CommandParameter="{x:Static b:ViewModels.overallViewType}" Height="140">
                 <Image Source="/Resources/left_arrow.png" Width="40"/>
             </k:KinectCircleButton>
             <TextBlock Style="{StaticResource Header_TextBlock_Style}" Text="{Binding fileName}" VerticalAlignment="Center"/>
