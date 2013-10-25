@@ -1,4 +1,5 @@
-﻿using System;
+﻿using kBrowser.Businesses;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,11 @@ namespace kBrowser.Views
         public PictureView()
         {
             InitializeComponent();
+
+            KinectCommands.ScaleChanged += (DeltaScale) =>
+            {
+                this.sl_scale.Value += DeltaScale;
+            };
         }
     }
 }

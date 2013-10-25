@@ -15,5 +15,14 @@ namespace kBrowser.Businesses
 
         public static ICommand initKinectCameraCommand = new InitializeCameraCommand(_sensorChooser);
         public static ICommand stopKinect = new StopKinectCommand(_sensorChooser);
+
+        public static event Action<double> ScaleChanged;
+        public static void ChangeScale(double Delta)
+        {
+            if (ScaleChanged != null)
+            {
+                ScaleChanged(Delta);
+            }
+        }
     }
 }
