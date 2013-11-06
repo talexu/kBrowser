@@ -30,7 +30,10 @@ namespace kBrowser.Views
 
         void Instance_ScaleChanged(float obj)
         {
-            this.sl_scale.Value = Math.Min(this.sl_scale.Value * obj, this.sl_scale.Maximum);
+            if (this.IsVisible)
+            {
+                this.sl_scale.Value = Math.Min(this.sl_scale.Value * obj, this.sl_scale.Maximum);
+            }
         }
     }
 }

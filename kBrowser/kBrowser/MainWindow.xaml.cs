@@ -45,6 +45,7 @@ namespace kBrowser
         private void main_win_Loaded(object sender, RoutedEventArgs e)
         {
             KinectManager.Instance.InitializeCamera(kinectRegion, sensorChooserUi);
+            SoundManager.Instance.init();
         }
 
         private void RegisterView(ViewType viewType, FrameworkElement view)
