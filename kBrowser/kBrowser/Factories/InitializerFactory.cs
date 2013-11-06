@@ -19,10 +19,6 @@ namespace kBrowser.Factories
         public AbstractInitializer createInitializer(IDictionary<string, object> parameters)
         {
             AbstractInitializer initializer = new DataInitializer(parameters);
-            parameters.Add(Config.k_decoratedInitializer, initializer);
-            initializer = new KinectCameraInitializer(parameters);
-            parameters[Config.k_decoratedInitializer] = initializer;
-            initializer = new KinectSoundInitializer(parameters);
 
             return initializer;
         }

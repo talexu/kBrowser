@@ -1,6 +1,4 @@
-﻿using kBrowser.Businesses;
-using kBrowser.Utilities;
-using Microsoft.Kinect;
+﻿using Microsoft.Kinect;
 using Microsoft.Kinect.Toolkit;
 using Microsoft.Kinect.Toolkit.Controls;
 using System;
@@ -10,33 +8,42 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 
-namespace kBrowser.Commands.Kinect
+namespace kBrowser.Businesses
 {
-    class InitializeCameraCommand : AbstractInitializeKinectCommand
+    class KinectManager
     {
-        public InitializeCameraCommand(KinectSensorChooser sensorChooser)
-            : base(sensorChooser)
+        #region instance
+        private static KinectManager _instance = new KinectManager();
+        public static KinectManager Instance
+        {
+            get
+            {
+                return _instance;
+            }
+        }
+        private KinectManager()
         {
         }
+        #endregion
 
-        public override void Execute(object parameter)
+        KinectSensorChooser _sensorChooser;
+        KinectRegion _kinectRegion;
+        KinectSensorChooserUI _sensorChooserUi;
+
+        public void InitializeCamera(KinectRegion kinectRegion, KinectSensorChooserUI sensorChooserUi)
         {
-            IDictionary<string, object> parameters = TypeHelper.ToType<IDictionary<string, object>>(parameter);
-            if (parameters != null)
-            {
-                KinectRegion kinectRegion = TypeHelper.GetObjectFromIDictionary<KinectRegion>(parameters, Config.k_kinectRegion);
-                KinectSensorChooserUI sensorChooserUi = TypeHelper.GetObjectFromIDictionary<KinectSensorChooserUI>(parameters, Config.k_kinectSensorChooserUI);
+            _kinectRegion = kinectRegion;
+            _sensorChooserUi = sensorChooserUi;
 
-                // initialize the sensor chooser and UI
-                _sensorChooser = new KinectSensorChooser();
-                _sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
-                sensorChooserUi.KinectSensorChooser = _sensorChooser;
-                _sensorChooser.Start();
+            // initialize the sensor chooser and UI
+            _sensorChooser = new KinectSensorChooser();
+            _sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
+            sensorChooserUi.KinectSensorChooser = _sensorChooser;
+            _sensorChooser.Start();
 
-                // Bind the sensor chooser's current sensor to the KinectRegion
-                var regionSensorBinding = new Binding("Kinect") { Source = _sensorChooser };
-                BindingOperations.SetBinding(kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
-            }
+            // Bind the sensor chooser's current sensor to the KinectRegion
+            var regionSensorBinding = new Binding("Kinect") { Source = _sensorChooser };
+            BindingOperations.SetBinding(kinectRegion, KinectRegion.KinectSensorProperty, regionSensorBinding);
         }
 
         /// <summary>
@@ -86,6 +93,14 @@ namespace kBrowser.Commands.Kinect
                     // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.
                     // E.g.: sensor might be abruptly unplugged.
                 }
+            }
+        }
+
+        public void Stop()
+        {
+            if (_sensorChooser != null)
+            {
+                _sensorChooser.Stop();
             }
         }
     }

@@ -1,5 +1,4 @@
-﻿using kBrowser.Commands.Kinect;
-using kBrowser.Commands.Model;
+﻿using kBrowser.Commands.Model;
 using kBrowser.Factories;
 using kBrowser.Initializations;
 using kBrowser.Models.Entity;
@@ -28,7 +27,6 @@ namespace kBrowser.Businesses
             parameters = parameters == null ? new SoDictionary() : parameters;
 
             parameters.Add(Config.k_loadDataCommand, ModelCommands.loadPicturesCommand);
-            parameters.Add(Config.k_initlizeKinectCameraCommand, KinectCommands.initKinectCameraCommand);
 
             IInitializerFactory factory = new InitializerFactory();
             return factory.createInitializer(parameters);

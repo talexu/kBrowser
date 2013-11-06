@@ -25,8 +25,6 @@ namespace kBrowser
     /// </summary>
     public partial class MainWindow : Window
     {
-        private KinectSensor _sensor;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -36,21 +34,17 @@ namespace kBrowser
             RegisterView(ViewType.overall, v_overall);
             RegisterView(ViewType.picture, v_picture);
 
-            //Commons.getNonKinectInitializer().run();
-            //SoDictionary parameters = new SoDictionary(new object[] { Config.k_kinectRegion, kinectRegion, Config.k_kinectSensorChooserUI, sensorChooserUi, Config.k_sensor, _sensor });
-            SoDictionary parameters = new SoDictionary(Config.k_kinectRegion, kinectRegion, Config.k_kinectSensorChooserUI, sensorChooserUi);
-            Commons.getInitializer(parameters).run();
+            Commons.getInitializer().run();
         }
 
         private void ControlsBasicsWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            KinectCommands.stopKinect.Execute(null);
-            KinectCommands.CloseWindow();  // Stop Audio
+            KinectManager.Instance.Stop();
         }
 
         private void main_win_Loaded(object sender, RoutedEventArgs e)
         {
-
+            KinectManager.Instance.InitializeCamera(kinectRegion, sensorChooserUi);
         }
 
         private void RegisterView(ViewType viewType, FrameworkElement view)

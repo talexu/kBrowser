@@ -24,11 +24,6 @@ namespace kBrowser.Views
         public PictureView()
         {
             InitializeComponent();
-
-            KinectCommands.ScaleChanged += (DeltaScale) =>
-            {
-                this.sl_scale.Value += DeltaScale;
-            };
         }
     }
 }
