@@ -130,7 +130,7 @@ namespace kBrowser.Businesses
             //start timer to do spectrum analysis
             t = new DispatcherTimer()
             {
-                Interval = TimeSpan.FromMilliseconds(10)
+                Interval = TimeSpan.FromMilliseconds(100)
             };
             t.Tick += timer_Tick;
             t.Start();
