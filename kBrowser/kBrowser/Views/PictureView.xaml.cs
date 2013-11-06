@@ -32,7 +32,9 @@ namespace kBrowser.Views
         {
             if (this.IsVisible)
             {
-                this.sl_scale.Value = Math.Min(this.sl_scale.Value * obj, this.sl_scale.Maximum);
+                double v = Math.Min(this.sl_scale.Value * obj, this.sl_scale.Maximum);
+                v = Math.Max(v, this.sl_scale.Minimum);
+                this.sl_scale.Value = v;
             }
         }
     }

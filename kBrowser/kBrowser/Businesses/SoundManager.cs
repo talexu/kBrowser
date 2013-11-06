@@ -90,7 +90,7 @@ namespace kBrowser.Businesses
             //set record driver 0-kinect 1-microphone(if there is no kinect 0-microphone)
             FMOD.CREATESOUNDEXINFO exinfo = new FMOD.CREATESOUNDEXINFO();
             FMOD.DSP_RESAMPLER resampler = FMOD.DSP_RESAMPLER.MAX;
-            int selected = 1;
+            int selected = 0;
             system.getRecordDriverInfo(selected, drivername, drivername.Capacity, ref guid);
             Console.WriteLine("recorder name:" + drivername.ToString());
             int temp = 0;
@@ -163,11 +163,11 @@ namespace kBrowser.Businesses
                 dominanthz = (float)bin * BINSIZE;
                 if (dominanthz >= 300.0f && dominanthz < 1000.0f)
                 {
-                    float lr = 0.9f;
+                    float lr = 0.97f;
                     rate = (dominanthz - 300.0f) / 100.0f;
                     if (rate >= 0.0f && rate < lr)
                     {
-                        rate = rate * ((1.0f - lr) / 1.0f + 1.0f);
+                        rate = rate * (1.0f - lr) / 1.0f + lr;
                         ScaleChanged(rate);
                     }
                     else if (rate >= lr && rate < 2.0f - lr)
