@@ -72,6 +72,7 @@
     <Compile Include="Businesses\Commons.cs" />
     <Compile Include="Businesses\KinectManager.cs" />
     <Compile Include="Businesses\ModelCommands.cs" />
+    <Compile Include="Businesses\SoundManager.cs" />
     <Compile Include="Businesses\ViewModels.cs" />
     <Compile Include="Businesses\ViewCommands.cs" />
     <Compile Include="Businesses\Config.cs" />

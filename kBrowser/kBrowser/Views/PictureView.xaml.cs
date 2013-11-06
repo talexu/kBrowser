@@ -24,6 +24,13 @@ namespace kBrowser.Views
         public PictureView()
         {
             InitializeComponent();
+
+            SoundManager.Instance.ScaleChanged += Instance_ScaleChanged;
+        }
+
+        void Instance_ScaleChanged(float obj)
+        {
+            this.sl_scale.Value = Math.Min(this.sl_scale.Value * obj, this.sl_scale.Maximum);
         }
     }
 }
