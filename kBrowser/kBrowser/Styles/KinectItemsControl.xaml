@@ -66,8 +66,8 @@
         <Setter Property="Foreground" Value="#FF5A5B5B"/>
         <Setter Property="FontFamily" Value="Segoe UI"/>
         <Setter Property="FontSize" Value="32"/>
-        <Setter Property="Height" Value="350"/>
-        <Setter Property="Width" Value="350"/>
+        <Setter Property="Height" Value="300"/>
+        <Setter Property="Width" Value="300"/>
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="HorizontalLabelAlignment" Value="Left"/>
         <Setter Property="VerticalLabelAlignment" Value="Bottom"/>

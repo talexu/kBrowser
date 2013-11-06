@@ -90,7 +90,7 @@ namespace kBrowser.Businesses
             //set record driver 0-kinect 1-microphone(if there is no kinect 0-microphone)
             FMOD.CREATESOUNDEXINFO exinfo = new FMOD.CREATESOUNDEXINFO();
             FMOD.DSP_RESAMPLER resampler = FMOD.DSP_RESAMPLER.MAX;
-            int selected = 0;
+            int selected = 1;
             system.getRecordDriverInfo(selected, drivername, drivername.Capacity, ref guid);
             Console.WriteLine("recorder name:" + drivername.ToString());
             int temp = 0;
