@@ -161,7 +161,8 @@ namespace kBrowser.Businesses
                 }
 
                 dominanthz = (float)bin * BINSIZE;
-                if (dominanthz >= 300.0f && dominanthz < 1000.0f)
+                float low = 300.0f, high = 1000.0f;
+                if (dominanthz >= low && dominanthz < high)
                 {
                     Console.WriteLine(dominanthz);
                     //float lr = 0.97f;
@@ -186,11 +187,11 @@ namespace kBrowser.Businesses
                     float middle = 450f;
                     if (dominanthz < middle)
                     {
-                        rate = (1 - l) * (middle - dominanthz) / (middle - 300) + l;
+                        rate = (1 - l) * (middle - dominanthz) / (middle - low) + l;
                     }
                     else
                     {
-                        rate = (r - 1) * (dominanthz - middle) / (1000 - middle) + 1;
+                        rate = (r - 1) * (dominanthz - middle) / (high - middle) + 1;
                     }
                     Console.WriteLine("rate: " + rate);
                     ScaleChanged(rate);
