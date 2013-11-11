@@ -1,6 +1,7 @@
 ﻿using kBrowser.Businesses;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,14 @@ namespace kBrowser.Views
     /// </summary>
     public partial class PictureView : UserControl
     {
+        public Boolean IsSoundable
+        {
+            get { return (Boolean)this.GetValue(IsSoundableProperty); }
+            set { this.SetValue(IsSoundableProperty, value); }
+        }
+        public static readonly DependencyProperty IsSoundableProperty = DependencyProperty.Register(
+          "IsSoundable", typeof(Boolean), typeof(PictureView), new PropertyMetadata(false));
+
         public PictureView()
         {
             InitializeComponent();
@@ -30,12 +39,36 @@ namespace kBrowser.Views
 
         void Instance_ScaleChanged(float obj)
         {
-            if (this.IsVisible)
+            if (this.IsVisible && this.IsSoundable)
             {
                 double v = Math.Min(this.sl_scale.Value * obj, this.sl_scale.Maximum);
                 v = Math.Max(v, this.sl_scale.Minimum);
                 this.sl_scale.Value = v;
             }
         }
+
+        private void sw_sound_Click(object sender, RoutedEventArgs e)
+        {
+            IsSoundable = !IsSoundable;
+        }
     }
+
+    [ValueConversion(typeof(Boolean), typeof(BitmapImage))]
+    public class IsSoundableIcon : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if ((bool)value == true)
+            {
+                return new BitmapImage(new Uri("/Resources/Speaker.png", UriKind.Relative));
+            }
+            return new BitmapImage(new Uri("/Resources/Mute.png", UriKind.Relative));
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+    }
+
 }

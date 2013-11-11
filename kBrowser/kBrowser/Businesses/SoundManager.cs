@@ -163,23 +163,37 @@ namespace kBrowser.Businesses
                 dominanthz = (float)bin * BINSIZE;
                 if (dominanthz >= 300.0f && dominanthz < 1000.0f)
                 {
-                    float lr = 0.97f;
-                    rate = (dominanthz - 300.0f) / 100.0f;
-                    if (rate >= 0.0f && rate < lr)
+                    Console.WriteLine(dominanthz);
+                    //float lr = 0.97f;
+                    //rate = (dominanthz - 300.0f) / 100.0f;
+                    //if (rate >= 0.0f && rate < lr)
+                    //{
+                    //    rate = rate * (1.0f - lr) / 1.0f + lr;
+                    //    ScaleChanged(rate);
+                    //}
+                    //else if (rate >= lr && rate < 2.0f - lr)
+                    //{
+                    //    ScaleChanged(rate);
+                    //}
+                    //else if (rate >= 2.0f - lr && rate < 2.0f)
+                    //{
+                    //    rate = rate * (1.0f -lr) / 7.0f +1.0f;
+                    //    ScaleChanged(rate);
+                    //}
+                    //Console.WriteLine("rate: " + rate);
+
+                    float l = 0.95f, r = 1.1f;
+                    float middle = 450f;
+                    if (dominanthz < middle)
                     {
-                        rate = rate * (1.0f - lr) / 1.0f + lr;
-                        ScaleChanged(rate);
+                        rate = (1 - l) * (middle - dominanthz) / (middle - 300) + l;
                     }
-                    else if (rate >= lr && rate < 2.0f - lr)
+                    else
                     {
-                        ScaleChanged(rate);
-                    }
-                    else if (rate >= 2.0f - lr && rate < 2.0f)
-                    {
-                        rate = rate * (1.0f -lr) / 7.0f +1.0f;
-                        ScaleChanged(rate);
+                        rate = (r - 1) * (dominanthz - middle) / (1000 - middle) + 1;
                     }
                     Console.WriteLine("rate: " + rate);
+                    ScaleChanged(rate);
                 }
             }
 

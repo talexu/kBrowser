@@ -3,9 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:k="http://schemas.microsoft.com/kinect/2013"
              xmlns:b="clr-namespace:kBrowser.Businesses"
+             xmlns:v="clr-namespace:kBrowser.Views"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d" >
+             mc:Ignorable="d" x:Name="root">
+    <UserControl.Resources>
+        <v:IsSoundableIcon x:Key="SpeechIconConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -34,6 +38,10 @@
             </k:KinectScrollViewer>
             <k:KinectSlider x:Name="sl_scale" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Stretch" Minimum="1" Maximum="5" Value="1" Margin="20,0,0,0"/>
             <k:KinectSlider x:Name="sl_rotate" HorizontalAlignment="Stretch" VerticalAlignment="Top" Minimum="-180" Maximum="180" Margin="0,0,20,0"/>
+            <k:KinectTileButton x:Name="sw_sound" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="150" Height="150" Opacity="0.3" Click="sw_sound_Click" Margin="0,0,20,20">
+                <!--<TextBlock Text="{Binding ElementName=root, Path=IsSoundable}"/>-->
+                <Image Source="{Binding ElementName=root, Path=IsSoundable, Converter={StaticResource SpeechIconConverter}}" Margin="10"/>
+            </k:KinectTileButton>
         </Grid>
         <StackPanel Orientation="Horizontal">
             <k:KinectCircleButton Command="{x:Static b:ViewCommands.jumpToViewCommand}" CommandParameter="{x:Static b:ViewModels.overallViewType}" Height="140">

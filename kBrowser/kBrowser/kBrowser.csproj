@@ -267,6 +267,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="KinectInteraction180_64.dll" />
+    <Resource Include="Resources\Mute.png" />
+    <Resource Include="Resources\Speaker.png" />
     <Resource Include="Resources\left_arrow.png" />
   </ItemGroup>
   <ItemGroup>
