@@ -9,6 +9,8 @@
              mc:Ignorable="d" x:Name="root">
     <UserControl.Resources>
         <v:IsSoundableIcon x:Key="SpeechIconConverter"/>
+        <v:GetHalf x:Key="HalfConverter"/>
+        <v:LengthScaleToCenter x:Key="CenterConverter"/>
     </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -17,18 +19,31 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="1">
             <k:KinectScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                <Image Source="{Binding uri}" RenderTransformOrigin="0.5,0.5">
+                <Image x:Name="img" Source="{Binding uri}" HorizontalAlignment="Stretch">
                     <Image.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
                             <SkewTransform/>
-                            <RotateTransform Angle="{Binding Value, ElementName=sl_rotate}"/>
+                            <RotateTransform Angle="{Binding Value, ElementName=sl_rotate}">
+                                <RotateTransform.CenterX>
+                                    <MultiBinding Converter="{StaticResource CenterConverter}">
+                                        <Binding Path="ActualWidth" ElementName="img"/>
+                                        <Binding Path="ScaleX" ElementName="lst"/>
+                                    </MultiBinding>
+                                </RotateTransform.CenterX>
+                                <RotateTransform.CenterY>
+                                    <MultiBinding Converter="{StaticResource CenterConverter}">
+                                        <Binding Path="ActualHeight" ElementName="img"/>
+                                        <Binding Path="ScaleY" ElementName="lst"/>
+                                    </MultiBinding>
+                                </RotateTransform.CenterY>
+                            </RotateTransform>
                             <TranslateTransform/>
                         </TransformGroup>
                     </Image.RenderTransform>
                     <Image.LayoutTransform>
                         <TransformGroup>
-                            <ScaleTransform ScaleX="{Binding Value, ElementName=sl_scale}" ScaleY="{Binding Value, ElementName=sl_scale}"/>
+                            <ScaleTransform x:Name="lst" ScaleX="{Binding Value, ElementName=sl_scale}" ScaleY="{Binding Value, ElementName=sl_scale}"/>
                             <SkewTransform/>
                             <RotateTransform/>
                             <TranslateTransform/>

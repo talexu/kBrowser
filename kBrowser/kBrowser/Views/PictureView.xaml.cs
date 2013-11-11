@@ -71,4 +71,33 @@ namespace kBrowser.Views
         }
     }
 
+    [ValueConversion(typeof(Double), typeof(Double))]
+    public class GetHalf : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return (double)value / 2;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+    }
+
+    public class LengthScaleToCenter : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            double l = (double)values[0];
+            double s = (double)values[1];
+
+            return 0.5 * l * s;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        {
+            return null;
+        }
+    }
 }
