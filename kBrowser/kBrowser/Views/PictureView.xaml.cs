@@ -85,14 +85,28 @@ namespace kBrowser.Views
         }
     }
 
+    /// <summary>
+    /// values 0:scrollable, 1:viewportlength, 2:offset, 3:imglength, 4:imgscale
+    /// </summary>
     public class LengthScaleToCenter : IMultiValueConverter
     {
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            double l = (double)values[0];
-            double s = (double)values[1];
+            //double l = (double)values[0];
+            //double s = (double)values[1];
 
-            return 0.5 * l * s;
+            //return 0.5 * l * s;
+            double scrollableLength = (double)values[0];
+            double viewportLength = (double)values[1];
+            double offset = (double)values[2];
+            double imgLength = (double)values[3];
+            double imgScale = (double)values[4];
+
+            if (scrollableLength == 0)
+            {
+                return 0.5 * imgLength * imgScale;
+            }
+            return offset + 0.5 * viewportLength;
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
