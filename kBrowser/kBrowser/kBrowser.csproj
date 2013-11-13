@@ -182,6 +182,9 @@
     <Folder Include="Commands\Common\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Demo\Chest\Medical X-Ray imaging TPH07 nevit.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Demo\Chest\Results through Technology and Dependability.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
